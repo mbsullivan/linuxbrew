@@ -48,7 +48,7 @@ class Ruby < Formula
     args << "--with-arch=#{Hardware::CPU.universal_archs.join(',')}" if build.universal?
     args << "--with-out-ext=tk" if build.without? "tcltk"
     args << "--disable-install-doc" if build.without? "doc"
-    args << "--disable-dtrace" unless MacOS::CLT.installed?
+    args << "--disable-dtrace" unless (OS.mac? and MacOS::CLT.installed?)
     args << "--without-gmp" if build.without? "gmp"
 
     paths = [
