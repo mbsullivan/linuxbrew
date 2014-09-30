@@ -17,7 +17,7 @@ class Libxslt < Formula
   depends_on 'libxml2'
 
   def install
-    system "./configure", "--disable-dependency-tracking",
+    system "./configure", "--disable-dependency-tracking", "--without-crypto",
                           "--prefix=#{prefix}",
                           "--with-libxml-prefix=#{Formula["libxml2"].prefix}"
     system "make"
